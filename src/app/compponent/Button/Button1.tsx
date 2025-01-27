@@ -1,17 +1,17 @@
 import React from 'react'
 import Link from 'next/link'
 
-const Button1 = ({ setShow ,data}: { setShow: any,data :any }) => {
+const Button = () => {
   const checkClick = () => {
-    if (!data) {
-      setShow(true)
-    } else {
-      setShow(false)
-    }
+    // if (!data) {
+    //   setShow(true)
+    // } else {
+    //   setShow(false)
+    // }
   }
   return (
     <button onClick={checkClick}><Link  href="" />OK</button>
   )
 }
 
-export default Button1
+export default Button
