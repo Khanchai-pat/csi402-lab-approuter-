@@ -16,7 +16,9 @@ pipeline {
         }
         stage('Build') { 
             steps {
-                print 'Building and Deploying'
+                print 'Building'
+                bat "docker build -t csi402abapprouter"
+                bat "docker run -d --name CSI403L -p 2500:3000 CSI403L:latest"
             }
         }
         stage('test') {
