@@ -23,6 +23,7 @@ pipeline {
                 
                 }
                 script{
+                    bat "docker rm -f csi402abapprouter-run || true"
                     bat "docker run -d --name csi402abapprouter-run -p 2500:3000 csi402abapprouter:latest"
                     print 'Docker Image to Running Container Success'
                 }
