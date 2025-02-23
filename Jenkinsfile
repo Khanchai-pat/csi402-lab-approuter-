@@ -16,9 +16,16 @@ pipeline {
         }
         stage('Build') { 
             steps {
-                print 'Building'
-                bat "docker build -t csi402abapprouter"
-                bat "docker run -d --name CSI403L -p 2500:3000 CSI403L:latest"
+                print 'Building Image'
+                script{
+                    bat "docker build -t csi402abapprouter ."
+                    print 'Building Image Success'
+                
+                }
+                script{
+                    bat "docker run -d --name csi402abapprouter-run -p 2500:3000 csi402abapprouter:latest"
+                    print 'Docker Image to Running Container Success'
+                }
             }
         }
         stage('test') {
